@@ -1,0 +1,511 @@
+/*COLORES PRINCIPALES :)*/
+:root {
+    --primary-green: #388e3c;
+    --primary-yellow: #ffcf00;
+}
+
+/*NAVBAR*/
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: #fafafa;
+    box-shadow: 0 0px 0px rgba(70, 70, 70, 0.01);
+    padding: 20px 0;
+    padding-top: 20px;
+}
+
+.marca-sitio {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-green);
+    font-size: 40px;
+    font-weight: bold;
+    filter: drop-shadow(0 0 0.5px rgba(56, 142, 60, 2));
+    text-decoration: none;
+}
+
+.circulo-usuario {
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    background-color: #242424;
+    color: #fafafa;
+}
+
+.letra {
+    font-size: 13px;
+    position: relative;
+    bottom: 2px;
+}
+
+
+.rounded-circle {
+    width: 30px;
+    height: 30px;
+    justify-items: center;
+}
+
+.contenedor-circulo {
+    position: relative;
+    border: 1px solid #dddddd;
+    box-shadow: 0 0 20px #dddddd88;
+    display: flex;
+    margin-top: 5px;
+    padding: 6px;
+    border-radius: 50px;
+    width: 85px;
+}
+
+.contenedor-boton-menu {
+    border-radius: 50px;
+    border: 1px solid #dddddd;
+    padding: 5px;
+    box-shadow: 0 0 20px #dddddd88;
+}
+
+/* Contenedor y menú desplegable */
+
+.contenedor-menu {
+    position: absolute;
+    top: 60px; /* Ajusta según la altura del botón */
+    right: 0; /* Alinea con el borde derecho */
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 250px;
+    z-index: 1000;
+    display: none; /* Oculto por defecto */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.menu-usuario .lista-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-usuario .lista-menu li {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--primary-green);
+    cursor: pointer;
+}
+
+.menu-usuario .lista-menu li:hover {
+    background-color: #f5f5f5;
+}
+
+.menu-usuario .lista-menu .punto-notificacion {
+    background-color: var(--primary-yellow);
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.menu-usuario hr {
+    margin: 8px 16px;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Clase para mostrar el menú */
+.menu-usuario.oculto {
+    display: none;
+}
+
+.menu-usuario.visible {
+    display: block;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Remover color azul en clic */
+.contenedor-circulo:focus, .menu-usuario li:focus {
+    outline: none;
+    box-shadow: 0 0 8px var(--primary-green);
+}
+
+.icono-barras {
+    margin-right: 15px;
+    margin-top: 7px;
+    margin-left: 9px;
+    position: relative;
+    top: 2px;
+}
+
+.menu-desplegable {
+    position: absolute; /* Cambia a absoluto */
+    top: 100%; /* Asegúrate de posicionarlo justo debajo del botón */
+    left: 0; /* Por defecto, está alineado al borde izquierdo del contenedor */
+    transform: translateX(-100%); /* Mueve hacia la izquierda del borde del botón */
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 999;
+    min-width: 200px; /* Ajusta según sea necesario */
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    min-width: 200px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+
+.punto-notificacion {
+    background-color: var(--primary-yellow);
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+
+/*SECCION PRINCIPAL*/
+
+/* Sidebar */
+/* Sidebar */
+.dashboard-sidebar {
+    position: fixed;
+    top: 76px; /* Altura del navbar */
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 56px); /* Altura dinámica del viewport menos el navbar */
+    background-color: #f8f9fa;
+    color: #343a40;
+    overflow-y: auto;
+    transition: all 0.3s;
+    z-index: 1000; /* Asegura que no quede detrás de otros elementos */
+    box-shadow: 0 0 20px #33333322;
+}
+
+/* Ajuste del Navbar */
+.navbar {
+    position: relative;
+    z-index: 1050; /* Asegura que siempre esté visible encima */
+}
+
+.fas {
+    color: #388e3c;
+}
+
+.fa-paperclip {
+    color: #388e3c;
+}
+
+.botones-sidebar {
+    margin: 0 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 10px;
+}
+
+.botones-sidebar:hover {
+    background-color: #388e3c;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #388e3c88;
+    .fas, .fa-paperclip {
+        color: white;
+    }
+    transform: scale(1.05);
+    span {
+        color: white;
+    }
+}
+
+.dashboard-sidebar.compact {
+    width: 80px;
+}
+
+.dashboard-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-sidebar ul li {
+    padding: 10px;
+    padding-left: 15px;
+    text-align: left;
+    margin: 10px 15px;
+}
+
+.botonSBInicio {
+    margin-top: 15px;
+}
+
+.dashboard-sidebar ul li a {
+    color: #343a40;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-sidebar ul li a i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.dashboard-sidebar.compact ul li a span {
+    display: none; /* Oculta el texto en modo compacto */
+}
+
+#sidebarTitle {
+    margin-bottom: 20px;
+    transition: opacity 0.3s, transform 0.3s; /* Animación suave */
+    text-align: left;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+h1 {
+    font-weight: bold;
+    text-shadow: 0 0 20px #388e3c3f;
+    color: #388e3c;
+}
+
+.parrafoBajotitulo {
+    margin-bottom: 20px;
+    font-size: 17px;
+    color: black;
+}
+
+.dashboard-sidebar.compact #sidebarTitle {
+    opacity: 0; /* Cambia visibilidad */
+    transform: scale(0.8); /* Reduce tamaño para animación */
+    pointer-events: none; /* Evita interacción con el elemento */
+}
+
+/* Botón de alternancia */
+.toggle-sidebar-btn {
+    position: relative;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    width: 100%;
+    padding: 10px 0;
+    padding-top: 20px;
+    background-color: #f8f9fa;
+    color: #343a40;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea para separar visualmente */
+    margin-left: 32px;
+}
+
+.dashboard-sidebar.compact .toggle-sidebar-btn {
+    padding: 10px; /* Ajustar el tamaño del botón en vista compacta */
+    padding-top: 20px;
+}
+
+/* Contenido principal */
+.dashboard-main {
+    margin-left: 270px;
+    margin-top: 25px; /* Espaciado para el navbar */
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+.dashboard-main.compact {
+    margin-left: 80px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard-sidebar {
+        transform: translateX(-250px);
+    }
+    .dashboard-sidebar.compact {
+        transform: translateX(-80px);
+    }
+    .dashboard-sidebar.open {
+        transform: translateX(0);
+    }
+    .dashboard-main {
+        margin-left: 0;
+    }
+}
+
+header {
+    margin-left: 24px;
+}
+
+/*CONTENIDO DEL MAIN*/
+
+.card-horizontal {
+    width: 94.5%;
+    height: 300px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.card-img-container {
+    height: 200px;
+    padding: 0;
+}
+
+.horizontal-img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-body-horizontal {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 20px;
+    margin-top: 10px;
+    color: black;
+    font-weight: 600;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.property-features {
+    display: flex;
+    gap: 15px;
+}
+
+.feature {
+    font-size: 14px;
+    color: #555;
+}
+
+.contorno-tipo {
+    margin-top: 10px;
+    text-align: center;
+    width: 60px;
+    height: 23px;
+    background-color: #388e3c;
+    color: white;
+    border-radius: 10px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contorno-tipo-renta {
+    margin-top: 10px;
+    text-align: center;
+    width: 60px;
+    height: 23px;
+    background-color: #f48800;
+    color: white;
+    border-radius: 10px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-text {
+    font-size: 22px;
+    color: #343a40;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.btn-cartas {
+    padding: 6px 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #4b6cb7;
+    border-color: #4b6cb7;
+}
+
+.btn-basura {
+    color: #d11111;
+}
+
+.botonCrear {
+    background-color: #388e3c;
+    margin-bottom: 20px;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease, transform 0.3s ease;
+}
+
+.contenedorTitulo{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.tituloYParrafoIzquierda{
+    max-width: 60%;
+}
+
+.botonDerecha{
+    display: flex;
+    align-items: flex-start;
+    margin-right: 25px;
+}
+
+.botonCrear{
+    border: none;
+}
+
+.modalEjegirTipo{
+    height: 560px;
+}
+
+.botonTipoProducto{
+    margin-top: 50px;
+}
+
+h5{
+    font-size: 30px;
+    color: #343a40;
+    font-weight: bold;
+}
