@@ -55,7 +55,7 @@
                                 class="active"><i class="fas fa-home"></i><span> Inicio</span></a></li>
                         <li class="botones-sidebar"><a href="../Dashboard Vendedor/DashboardVendedor.html"><i
                                     class="fas fa-chart-line"></i><span> Análisis de Ventas</span></a></li>
-                        <li class="botones-sidebar"><a href="../Creacion Citas Vendedor/CreacionCitasVendedor.html"><i
+                        <li class="botones-sidebar"><a href="{{ route('calendario.vendedor') }}"><i
                                     class="fas fa-calendar-alt"></i><span> Gestión de Citas</span></a></li>
                         <li class="botones-sidebar"><a href="../Terranova web2/FormularioContrato.html"><i
                                     class="fas fa-file-contract"></i><span> Contratos</span></a></li>
@@ -303,8 +303,6 @@
                                                             <button class="btn btn-cartas btn-sm" data-bs-toggle="modal"
                                                                 data-bs-target="#eliminarFinca{{ $finca->id }}"><i
                                                                     class="fas fa-trash-alt"></i></button>
-                                                            <button id="view-button" class="btn btn-primary btn-sm"><i
-                                                                    class="fas fa-eye me-1"></i>Ver detalles</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -362,8 +360,6 @@
                                                         <button class="btn btn-cartas btn-sm" data-bs-toggle="modal"
                                                             data-bs-target="#eliminarGanado{{ $ganado->id }}"><i
                                                                 class="fas fa-trash-alt"></i></button>
-                                                        <button id="view-button" class="btn btn-primary btn-sm"><i
-                                                                class="fas fa-eye me-1"></i>Ver detalles</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -421,8 +417,6 @@
                                                         <button class="btn btn-cartas btn-sm" data-bs-toggle="modal"
                                                             data-bs-target="#eliminarTerreno{{ $terreno->id }}"><i
                                                                 class="fas fa-trash-alt"></i></button>
-                                                        <button id="view-button" class="btn btn-primary btn-sm"><i
-                                                                class="fas fa-eye me-1"></i>Ver detalles</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -516,7 +510,7 @@
                                                             </p>
                                                             <div>
                                                                 <button id="view-button" class="btn btn-primary btn-sm"><i
-                                                                        class="fas fa-eye me-1"></i>Ver detalles</button>
+                                                                        class="fas fa-eye me-1"></i><a href="{{ route('citas.cliente') }}" style="text-decoration: none; color: white;">Agendar Cita</a></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -566,7 +560,7 @@
                                                         <p class="card-text">${{ number_format($ganado->producto->precioProducto) }}</p>
                                                         <div>
                                                             <button id="view-button" class="btn btn-primary btn-sm"><i
-                                                                    class="fas fa-eye me-1"></i>Ver detalles</button>
+                                                                    class="fas fa-eye me-1"></i><a href="{{ route('citas.cliente') }}" style="text-decoration: none; color: white;">Agendar Cita</a></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -616,7 +610,7 @@
                                                         </p>
                                                         <div>
                                                             <button id="view-button" class="btn btn-primary btn-sm"><i
-                                                                    class="fas fa-eye me-1"></i>Ver detalles</button>
+                                                                    class="fas fa-eye me-1"></i><a href="{{ route('citas.cliente') }}" style="text-decoration: none; color: white;">Agendar Cita</a></button>
                                                         </div>
                                                     </div>
                                                 </div>

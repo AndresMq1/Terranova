@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CalendarioController;
+use App\Http\Controllers\CitaController;
 use App\Http\Controllers\FincaController;
 use App\Http\Controllers\GanadoController;
 use App\Http\Controllers\HomeController;
@@ -29,3 +31,11 @@ Route::resource('terreno', TerrenoController::class);
 Route::post('/ganado', [GanadoController::class,'store'])->name('ganado.store');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/CalendarioVendedor', [CalendarioController::class, 'index'])->name('calendario.vendedor');
+Route::resource('calendarios', CalendarioController::class);
+Route::put('/calendarios/{id}', [CalendarioController::class, 'update'])->name('calendarios.update');
+
+Route::get('/CitasCliente', [CitaController::class, 'index'])->name('citas.cliente');
+Route::resource('/citas', CitaController::class);
+Route::delete('/citas/{id}', [CitaController::class, 'destroy'])->name('citas.destroy');
